@@ -1,0 +1,49 @@
+{
+  "name": "ssh_manager",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:tailwind": "npx tailwindcss -i ./src/tailwind.css -o ./dist/tailwind.css --minify"
+  },
+  "author": "Flerken42",
+  "license": "",
+  "description": "An app to manage SSH connections and tunnels",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.15",
+    "webpack": "^5.96.1"
+  },
+  "dependencies": {
+    "sqlite3": "^5.1.7"
+  },
+  "build": {
+    "appId": "flerken42.ssh_manager",
+    "productName": "SSH Manager",
+    "win": {
+      "icon": "assets/app_icon.ico",
+      "target": "nsis"
+    },
+    "linux": {
+      "icon": "assets/app_icon.png",
+      "target": "AppImage"
+    },
+    "files": [
+      "dist/**/*",
+      "main.js",
+      "preload.js",
+      "renderer.js",
+      "database.js",
+      "tunnelManager.js",
+      "index.html",
+      "assets/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  }
+}

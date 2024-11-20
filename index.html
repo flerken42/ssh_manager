@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SSH Tunnel Manager</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="./dist/tailwind.css" rel="stylesheet">
+
+</head>
+<body class="bg-blue-950 p-8">
+  <div class="container mx-auto">
+    <h1 class="text-3xl font-bold mb-4 text-white">SSH Tunnel Manager</h1>
+    <button id="add-tunnel" class="bg-blue-500 text-white px-4 py-2 rounded mb-4">Add New Tunnel</button>
+    
+    <div id="tunnel-form" class="bg-blue-800 p-4 rounded shadow mb-4 hidden">
+      <h2 class="text-xl font-bold mb-2">Add New Tunnel</h2>
+      <label for="tunnel-name" class="block mb-1">Tunnel Name:</label>
+      <input type="text" id="tunnel-name" class="border rounded p-2 w-full mb-2">
+      <label for="remote-host" class="block mb-1">Remote Host:</label>
+      <input type="text" id="remote-host" class="border rounded p-2 w-full mb-2">
+      <label for="ssh-username" class="block mb-1">SSH Username:</label>
+      <input type="text" id="ssh-username" class="border rounded p-2 w-full mb-2">
+      <label for="local-port" class="block mb-1">Local Port:</label>
+      <input type="number" id="local-port" class="border rounded p-2 w-full mb-2">
+      <label for="remote-port" class="block mb-1">Remote Port:</label>
+      <input type="number" id="remote-port" class="border rounded p-2 w-full mb-4">
+      <button id="save-tunnel" class="bg-green-500 text-white px-4 py-2 rounded mr-2">Save Tunnel</button>
+      <button id="cancel-tunnel" class="bg-red-500 text-white px-4 py-2 rounded">Cancel</button>
+    </div>
+
+    <table class="min-w-full bg-blue-800 rounded shadow text-white">
+      <thead class="bg-blue-900">
+        <tr>
+            <th class="py-2 px-4 border-b"></th>  
+          <th class="py-2 px-4 border-b">Name</th>
+          <th class="py-2 px-4 border-b">Remote Host</th>
+          <th class="py-2 px-4 border-b">SSH Username</th>
+          <th class="py-2 px-4 border-b">Local Port</th>
+          <th class="py-2 px-4 border-b">Remote Port</th>
+          <th class="py-2 px-4 border-b">Status</th>
+          <th class="py-2 px-4 border-b">Actions</th>
+          <th class="py-2 px-4 border-b"></th>  
+        </tr>
+      </thead>
+      <tbody id="tunnel-list">
+      </tbody>
+    </table>
+  </div>
+  <script src="renderer.js"></script>
+</body>
+</html>
